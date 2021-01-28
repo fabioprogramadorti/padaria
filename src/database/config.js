@@ -1,1 +1,3 @@
-export const db = 'mongodb://localhost:27017/padaria'
+export const db = {
+	uri: 'mongodb://localhost:27017/padaria'
+}
