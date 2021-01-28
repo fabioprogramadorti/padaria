@@ -1,9 +1,9 @@
 import express from "express"
 
 const routes = express.Router()
+import IngredientController from './app/controller/ingredient.controller'
 
-routes.get("/", (req, res) => {
-  return res.send("Minha primeira rota!")
-})
+routes.post("/ingredients", IngredientController.create)
+routes.get("/ingredients", IngredientController.list)
 
 export default routes
