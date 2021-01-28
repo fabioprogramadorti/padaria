@@ -12,12 +12,12 @@ class App {
     this.routes()
 
     this.express.listen(3001, () =>
-      console.log(`Sua API REST está funcionando na porta 3001 `)
+      console.log(`Server running at port 3001 `)
     )
   }
 
   database() {
-    mongoose.connect(db.uri, { useNewUrlParser: true })
+    mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true })
   }
 
   middlewares() {
