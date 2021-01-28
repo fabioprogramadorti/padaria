@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const RawMaterialsSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	quantity: {
 		type: Number,
