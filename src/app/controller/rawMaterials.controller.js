@@ -37,7 +37,7 @@ class RawMaterialsController {
 			})
 		}		
 	}
-	async getByName(req, res) {
+	async getMaterialsByName(req, res) {
 		try {
 			const ingredient = await RawMaterials.getByName(req.params.name)
 			if(ingredient.length == 0)
@@ -57,7 +57,7 @@ class RawMaterialsController {
 		}		
 	}
 
-	async listByUser(req, res) {
+	async listMaterialsByUser(req, res) {
 		try {
 			
 			const materials = await RawMaterials.listByUser(req.params.user)

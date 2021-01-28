@@ -11,18 +11,13 @@ class App {
     this.middlewares()
     this.routes()
 
-    this.express.listen(3001, () =>
-      console.log(`Server running at port 3001 `)
+    this.express.listen(3000, () =>
+      console.log(`Server running at port 3000 `)
     )
   }
 
   database() {
-    mongoose.connect(db.uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true
-    })
+    mongoose.connect(db.uri, db.options)
   }
 
   middlewares() {
