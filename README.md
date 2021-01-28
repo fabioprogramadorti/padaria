@@ -7,7 +7,7 @@
 
 ## 💻 Sobre o projeto
 
- Este projeto é feito utilizando Node e Mongodb. O banco de dados estará rodando no docker enviado junto do projeto.
+ Este projeto é feito utilizando Node e Mongodb. O banco de dados estará rodando no docker enviado junto do projeto. Junto ao projeto foi enviado um arquivo do Insomnia para testar a API.
 
 ---
 
