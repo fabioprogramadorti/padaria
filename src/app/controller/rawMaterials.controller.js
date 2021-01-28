@@ -38,7 +38,6 @@ class RawMaterialsController {
 		}		
 	}
 	async getByName(req, res) {
-
 		try {
 			const ingredient = await RawMaterials.getByName(req.params.name)
 			if(ingredient.length == 0)
@@ -58,12 +57,13 @@ class RawMaterialsController {
 		}		
 	}
 
-	async list(req, res) {
+	async listByUser(req, res) {
 		try {
-			const ingredients = await RawMaterials.list()
+			
+			const materials = await RawMaterials.listByUser(req.params.user)
 
 			return res.status(200).json({
-				data: ingredients,
+				data: materials,
 				msg: 'Raw materials requested successfully'
 			})
 			

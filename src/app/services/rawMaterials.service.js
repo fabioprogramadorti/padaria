@@ -12,10 +12,10 @@ class RawMaterials {
 		}
 	
 	}
-	
+
 	async getByName(name) {
 		try {
-			const material = await rawMaterialsModel.find({name: {"$regex":`${name}`}})
+			const material = await rawMaterialsModel.find({name: { $regex:new RegExp(name, "i")}})
 			return material
 		} catch (error) {
 			return error
@@ -35,20 +35,18 @@ class RawMaterials {
 
 			return materialUpdated
 		} catch (error) {
-			console.log(error)
 			return error.toString()
 		}
 	}
 
-	async list() {
+	async listByUser(user) {
 		try {
-			const list = await rawMaterialsModel.find({})
+			const list = await rawMaterialsModel.find({user: {$regex: new RegExp(user, "i")}})
 			return list
 		} catch (error) {
 			return error
 		}
 	}
-	
 
 }
 
