@@ -1,6 +1,7 @@
 import express from 'express'
 import { db } from './database/config'
 import mongoose from 'mongoose'
+import routes from './routes'
 
 class App {
   constructor() {
@@ -24,7 +25,7 @@ class App {
   }
 
   routes() {
-    this.express.use(require("./routes"))
+    this.express.use(routes)
   }
 }
 export default new App().express
