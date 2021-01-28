@@ -13,11 +13,30 @@ class RawMaterialsController {
 			
 		} catch (error) {
 			res.status(400).json({
+				data: {},
 				msg: error.toString()
 			})
 		}
 	}
 
+	async updateById(req, res) {
+
+		try {
+			const ingredient = await RawMaterials.updateById(req.params.id, req.body)
+
+			
+			return res.status(200).json({
+				data: ingredient,
+				msg: 'Raw material requested successfully'
+			})
+			
+		} catch (error) {
+			
+			res.status(400).json({
+				data: {},
+			})
+		}		
+	}
 	async getByName(req, res) {
 
 		try {
@@ -31,7 +50,7 @@ class RawMaterialsController {
 			})
 			
 		} catch (error) {
-			console.log(error)
+
 			res.status(400).json({
 				data: {},
 				msg: error.toString()
@@ -50,6 +69,7 @@ class RawMaterialsController {
 			
 		} catch (error) {
 			res.status(400).json({
+				data: {},
 				msg: error.toString()
 			})
 		}		

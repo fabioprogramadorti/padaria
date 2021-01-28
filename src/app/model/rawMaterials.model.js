@@ -9,7 +9,7 @@ const RawMaterialsSchema = new mongoose.Schema({
 	quantity: {
 		type: Number,
 		required: true,
-		min: 0
+		min: [6, 'Too few materials']
 	},
 	user: {
 		type: String,

@@ -21,6 +21,25 @@ class RawMaterials {
 			return error
 		}
 	}
+
+	async updateById(id, data) {
+		try {
+			const material = await rawMaterialsModel.findById(id)
+			if (data.quantity > material.quantity) {
+				throw new Error(`The quantity is too large. There is only ${material.quantity}`)
+			}
+
+			material.quantity -= data.quantity
+			material.user = data.user
+			const materialUpdated = await rawMaterialsModel.findByIdAndUpdate(id, material, {new: true})
+
+			return materialUpdated
+		} catch (error) {
+			console.log(error)
+			return error.toString()
+		}
+	}
+
 	async list() {
 		try {
 			const list = await rawMaterialsModel.find({})
