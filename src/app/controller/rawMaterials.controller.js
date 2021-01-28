@@ -13,10 +13,30 @@ class RawMaterialsController {
 			
 		} catch (error) {
 			res.status(400).json({
-				data: {},
-				msg: error
+				msg: error.toString()
 			})
 		}
+	}
+
+	async getByName(req, res) {
+
+		try {
+			const ingredient = await RawMaterials.getByName(req.params.name)
+			if(ingredient.length == 0)
+				throw new Error('Material not found')
+			
+			return res.status(200).json({
+				data: ingredient,
+				msg: 'Raw material requested successfully'
+			})
+			
+		} catch (error) {
+			console.log(error)
+			res.status(400).json({
+				data: {},
+				msg: error.toString()
+			})
+		}		
 	}
 
 	async list(req, res) {
@@ -29,9 +49,8 @@ class RawMaterialsController {
 			})
 			
 		} catch (error) {
-			res.status(200).json({
-				data: {},
-				msg: error
+			res.status(400).json({
+				msg: error.toString()
 			})
 		}		
 	}

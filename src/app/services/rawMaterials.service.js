@@ -13,6 +13,14 @@ class RawMaterials {
 	
 	}
 	
+	async getByName(name) {
+		try {
+			const material = await rawMaterialsModel.find({name: {"$regex":`${name}`}})
+			return material
+		} catch (error) {
+			return error
+		}
+	}
 	async list() {
 		try {
 			const list = await rawMaterialsModel.find({})
