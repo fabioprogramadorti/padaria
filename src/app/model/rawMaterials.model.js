@@ -1,6 +1,6 @@
-import mongoose, { Types } from 'mongoose'
+import mongoose from 'mongoose'
 
-const IngredientSchema = new mongoose.Schema({
+const RawMaterialsSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true
@@ -16,4 +16,4 @@ const IngredientSchema = new mongoose.Schema({
 	}
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
 
-export default mongoose.model('Ingredient', IngredientSchema)
+export default mongoose.model('RawMaterials', RawMaterialsSchema)

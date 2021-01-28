@@ -1,9 +1,9 @@
 import express from "express"
 
 const routes = express.Router()
-import IngredientController from './app/controller/ingredient.controller'
+import IngredientController from './app/controller/rawMaterials.controller'
 
-routes.post("/ingredients", IngredientController.create)
-routes.get("/ingredients", IngredientController.list)
+routes.post("/rawMaterials", IngredientController.create)
+routes.get("/rawMaterials", IngredientController.list)
 
 export default routes
