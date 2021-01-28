@@ -18,6 +18,12 @@ class App {
 
   database() {
     mongoose.connect(db.uri, db.options)
+      .then( res  => {
+        console.log('MongoDB connected')
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   middlewares() {
